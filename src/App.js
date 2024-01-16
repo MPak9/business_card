@@ -4,15 +4,15 @@ function App() {
 
   return (
     <div className="App">
-      <div className='cardContainer flexHalf vertical'>
-        <div className='outline leftContainer'> 
-          a
+      <div className='cardContainer frontCard'>
+        <div className='outline'> 
+          <div className='contentContainer'>a</div>
         </div>
-        <div className='outline rightContainer'> 
-          <div className='infoContainer' >
-            <div>a</div>
-            <div>b</div>
-            <div>c</div>
+        <div className='outline'> 
+          <div className='contentContainer' >
+            <div className='headerContainer' >a</div>
+            <div >b</div>
+            <div >c</div>
           </div>
         </div>
       </div>

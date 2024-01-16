@@ -10,14 +10,16 @@
   border: solid;
 }
 
-.infoContainer {
+/*----------------Container inside the Card that holds all the content margin and orientation styling -------------------------------------- */
+
+.contentContainer {
   display: flex;
   border: solid;
-  flex-direction: column; /*Now whether in Landscape or Portrait mode it'll go in the correct orientation*/
+  flex-direction: column; /*Now whether in Landscape or Portrait mode the content will be in the correct orientation*/
   margin: 5%;
 }
 
-.infoContainer > div {
+.contentContainer > div {
   border: solid;
   flex-basis: 50%;
 }
@@ -32,22 +34,15 @@
   display: flex;
 }
 
-.flexHalf > div {
+.frontCard > div {
   flex-basis: 50%;
 }
 
-.flex_FortySixty:nth-child(1) {
+.backCard > div:nth-child(1) {
   flex-basis: 40%;
 }
-.flex_FortySixty:nth-child(2) {
+.backCard > div:nth-child(2) {
   flex-basis: 60%;
-}
-
-.flex_SeventyThirty:nth-child(1) {
-  flex-basis: 70%;
-}
-.flex_SeventyThirty:nth-child(2) {
-  flex-basis: 30%;
 }
 
 /*------------------------------------------------------Device Rotation & Orientation----------------------------------- */
@@ -55,10 +50,24 @@
   .cardContainer {
     flex-direction: row;
   }
+
+  .backCard > div:nth-child(1) {
+    flex-basis: 70%;
+  }
+  .backCard > div:nth-child(2) {
+    flex-basis: 30%;
+  }
 }
 
 @media (orientation: portrait) {
   .cardContainer {
     flex-direction: column;
+  }
+
+  .backCard > div:nth-child(1) {
+    flex-basis: 40%;
+  }
+  .backCard > div:nth-child(2) {
+    flex-basis: 60%;
   }
 }
