@@ -24,15 +24,53 @@
   flex-basis: 50%;
 }
 
-/*------------------------------------------- Card Container Double Layout Styling ---------------------------------------------------------- */
+/*------------------------------------------- Flippable Card Container Styling ---------------------------------------------------------- */
 
-.cardContainer {
+/* The flip card container */
+.flippableCardContainer {
   margin-left: 5%;
   margin-right: 5%;
-  border: solid;
+  background-color: transparent;
   height: 80vh;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side of the cards in place */
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the flip box container */
+.isFlipped .card {
+  transform: rotateY(180deg);
+}
+
+.frontCard,
+.backCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
   display: flex;
 }
+
+.frontCard {
+  background-color: #bbb;
+}
+.backCard {
+  background-color: #2980b9;
+  transform: rotateY(180deg);
+  /* so when the card is fliped 180 degrees in the y direction later it'll be right side up */
+}
+
+/*--------------------------------------------------Different Layouts on Card Styling---------------------------------------------- */
 
 .frontCard > div {
   flex-basis: 50%;
@@ -47,20 +85,25 @@
 
 /*------------------------------------------------------Device Rotation & Orientation----------------------------------- */
 @media (orientation: landscape) {
-  .cardContainer {
+  .frontCard {
     flex-direction: row;
   }
 
+  .backCard {
+    flex-direction: row-reverse;
+  }
+
   .backCard > div:nth-child(1) {
-    flex-basis: 70%;
+    flex-basis: 30%;
   }
   .backCard > div:nth-child(2) {
-    flex-basis: 30%;
+    flex-basis: 70%;
   }
 }
 
 @media (orientation: portrait) {
-  .cardContainer {
+  .frontCard,
+  .backCard {
     flex-direction: column;
   }
 
