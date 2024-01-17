@@ -4,6 +4,7 @@
   text-align: left;
   height: 100vh;
   justify-content: center;
+  font-family: "Quattrocento Sans", sans-serif;
 }
 
 .outline {
@@ -14,16 +15,19 @@
 
 h1 {
   font-size: medium;
+  font-family: "Quattrocento Sans", sans-serif;
 }
 
 h2 {
   font-size: xx-large;
   margin-top: 0.25em;
   margin-bottom: 0.5em;
+  font-family: "Quattrocento", serif;
 }
 
 h3 {
   font-size: medium;
+  font-family: "Quattrocento Sans", sans-serif;
 }
 
 /*----------------Container inside the Card that holds all the content margin and orientation styling -------------------------------------- */

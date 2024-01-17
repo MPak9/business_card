@@ -8,7 +8,7 @@ const BackCard = ({children}) => {
         {name:'Wrigley Consulting'},
         {name:'Christian Eclipse'},
     ]
-    const [selected, setSelected] = useState();
+    const [selected, setSelected] = useState(info[0]);
 
 
 
