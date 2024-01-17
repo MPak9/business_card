@@ -1,26 +1,19 @@
 import React, { useState } from 'react'
 import HeaderContainer from './HeaderContainer'
+import { projects } from '../JSON/ProjectList'
 
 const BackCard = ({children}) => {
-    const info = [
-        {name:'Toasty Sandwich'},
-        {name:'Gusda'},
-        {name:'Wrigley Consulting'},
-        {name:'Christian Eclipse'},
-    ]
-    const [selected, setSelected] = useState(info[0]);
-
-
+    const [selected, setSelected] = useState(projects[0]);
 
   return (
     <div className='backCard'>
         <div className='contentContainer' >
-            <HeaderContainer subtitle={selected.name} title={selected.name} />
-            <div >b</div>
+            <HeaderContainer subtitle={selected.subtitle} title={selected.title} />
+            <div >{selected.content}</div>
             <div id='img' >c</div>
         </div>  
         <aside className='contentContainer'>
-            {info.map((i)=><div onClick={()=>setSelected(i)}>{i.name}</div>)}
+            {projects.map((i)=><div onClick={()=>setSelected(i)}>{i.title}</div>)}
             <h3>Projects</h3>
         </aside> 
     </div>

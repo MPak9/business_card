@@ -1,10 +1,13 @@
+:root {
+  font-family: "Quattrocento Sans", sans-serif;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   text-align: left;
   height: 100vh;
   justify-content: center;
-  font-family: "Quattrocento Sans", sans-serif;
 }
 
 .outline {
@@ -42,7 +45,7 @@ aside.contentContainer {
   flex-direction: column-reverse;
 }
 
-/*------------------------------------------- Flippable Card Container Styling ---------------------------------------------------------- */
+/*------------------------------------------- SOLO Flippable Card Container Styling ---------------------------------------------------------- */
 
 /* The flip card container */
 .flippableCardContainer {
@@ -97,21 +100,66 @@ aside.contentContainer {
   flex-basis: 50%;
 }
 
+/*---------------------------(PC & TABLET) DOUBLE LAYOUT STYLING --------------------------------------------------------------------- */
+
+.doubleLayout {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  height: 80vh;
+  justify-content: center;
+  gap: 5em;
+  margin: 5em;
+}
+
+.doubleLayout > div {
+  flex-basis: 50%;
+}
+
+.doubleLayout .backCard {
+  transform: rotateY(0);
+  backface-visibility: visible;
+}
+
+.doubleLayout .flippableCardContainer {
+  margin: 0;
+}
+
 /*------------------------------------------------------Device Rotation & Orientation----------------------------------- */
 @media (orientation: landscape) {
   .backCard > div:nth-child(1) {
-    flex-basis: 70%;
-    margin-right: 7em;
+    flex-basis: 80%;
   }
   .backCard > div:nth-child(2) {
-    flex-basis: 30%;
+    flex-basis: 20%;
+  }
+
+  .contentContainer {
+    margin: 2em;
+  }
+
+  .doubleLayout .backCard,
+  .doubleLayout .frontCard {
+    flex-direction: column;
+  }
+
+  /*----------FIX::: This needs to be dependent on different layout widths------------- */
+  .doubleLayout {
+    margin-left: 8em;
+    margin-right: 8em;
   }
 }
 
 @media (orientation: portrait) {
   .frontCard,
-  .backCard {
+  .backCard,
+  .doubleLayout {
     flex-direction: column;
+  }
+
+  .doubleLayout .backCard,
+  .doubleLayout .frontCard {
+    flex-direction: row;
   }
 
   .backCard > div:nth-child(1) {
@@ -123,5 +171,9 @@ aside.contentContainer {
 
   .backCard > .contentContainer > #img {
     order: -1; /*So img on the back card will appear on the very top in portrait mode*/
+  }
+
+  .contentContainer {
+    margin: 1em 2em 1em 2em;
   }
 }

@@ -6,11 +6,10 @@ const FrontCard = ({children}) => {
     <div className='frontCard'>
         <div className='contentContainer'>a</div>
         <div className='contentContainer' >
-            <HeaderContainer subtitle={'Job Title'} title={'Michelle Pak'}/>
+            <HeaderContainer subtitle={'Web Developer'} title={'Michelle Pak'}/>
             <div>
-                <p>LN: linkedln.com</p>
+                <p>linkedin.com/in/michellepak9</p>
                 <p>michellepak9@gmail.com</p>
-                <p>7063005341</p>
             </div>
             <div>QR</div>
         </div>
