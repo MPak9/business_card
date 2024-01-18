@@ -8,14 +8,14 @@ const BackCard = ({children}) => {
   return (
     <div className='backCard'>
         <div className='contentContainer' >
-            <HeaderContainer subtitle={selected.subtitle} title={selected.title} />
+            <HeaderContainer projectName = {selected.title} />
             <div >{selected.content}</div>
             <div id='img' >c</div>
         </div>  
-        <aside className='contentContainer'>
+        <div className='contentContainer'>
             {projects.map((i)=><div onClick={()=>setSelected(i)}>{i.title}</div>)}
-            <h3>Projects</h3>
-        </aside> 
+            <h4>Projects</h4>
+        </div> 
     </div>
   )
 }

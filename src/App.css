@@ -1,5 +1,10 @@
 :root {
   font-family: "Quattrocento Sans", sans-serif;
+
+  /*clamp: min limit, preferred, maximum limit */
+  --fs-title: clamp(36px, 2vw, 64px);
+  --fs-subtitle: clamp(20px, 1.5vw, 24px);
+  --fs-default: 1em;
 }
 
 .App {
@@ -8,6 +13,7 @@
   text-align: left;
   height: 100vh;
   justify-content: center;
+  font-size: var(--fs-default);
 }
 
 .outline {
@@ -17,20 +23,27 @@
 /*--------------------------------Text Styling --------------------------------------------------------------- */
 
 h1 {
-  font-size: medium;
+  font-size: var(--fs-subtitle);
   font-family: "Quattrocento Sans", sans-serif;
+  color: rgb(63, 63, 63);
 }
 
 h2 {
-  font-size: xx-large;
+  font-size: var(--fs-title);
   margin-top: 0.25em;
   margin-bottom: 0.5em;
   font-family: "Quattrocento", serif;
 }
 
 h3 {
-  font-size: medium;
+  font-size: var(--fs-subtitle);
+  font-family: "Quattrocento", serif;
+}
+
+h4 {
+  font-size: var(--fs-default);
   font-family: "Quattrocento Sans", sans-serif;
+  color: rgb(34, 34, 34);
 }
 
 /*----------------Container inside the Card that holds all the content margin and orientation styling -------------------------------------- */
@@ -39,10 +52,6 @@ h3 {
   display: flex;
   flex-direction: column; /*Now whether in Landscape or Portrait mode the content will be in the correct orientation*/
   margin: 2em;
-}
-
-aside.contentContainer {
-  flex-direction: column-reverse;
 }
 
 /*------------------------------------------- SOLO Flippable Card Container Styling ---------------------------------------------------------- */
@@ -128,10 +137,13 @@ aside.contentContainer {
 /*------------------------------------------------------Device Rotation & Orientation----------------------------------- */
 @media (orientation: landscape) {
   .backCard > div:nth-child(1) {
-    flex-basis: 80%;
+    flex-basis: 70%;
   }
   .backCard > div:nth-child(2) {
-    flex-basis: 20%;
+    flex-basis: 30%;
+    flex-direction: column-reverse;
+    padding-left: 1em;
+    border-left: 1px solid darkgray;
   }
 
   .contentContainer {
@@ -143,10 +155,26 @@ aside.contentContainer {
     flex-direction: column;
   }
 
-  /*----------FIX::: This needs to be dependent on different layout widths------------- */
+  .doubleLayout .backCard > div:nth-child(2) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .doubleLayout .backCard > div:nth-child(2) h4 {
+    border-top: 1px solid darkgray;
+    padding-top: 1.5em;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1100px) and (min-height: 500px) {
   .doubleLayout {
-    margin-left: 8em;
-    margin-right: 8em;
+    margin-left: 20em;
+    margin-right: 20em;
+  }
+}
+@media (orientation: landscape) and (min-width: 1100px) and (min-height: 700px) {
+  .doubleLayout {
+    margin-left: 10em;
+    margin-right: 10em;
   }
 }
 
@@ -167,6 +195,12 @@ aside.contentContainer {
   }
   .backCard > div:nth-child(2) {
     flex-basis: 40%;
+    flex-direction: column-reverse;
+  }
+
+  .backCard > div:nth-child(2) h4 {
+    border-top: 1px solid darkgray;
+    padding-top: 1.5em;
   }
 
   .backCard > .contentContainer > #img {
