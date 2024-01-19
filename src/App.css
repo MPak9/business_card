@@ -5,6 +5,8 @@
   --fs-title: clamp(36px, 2vw, 64px);
   --fs-subtitle: clamp(20px, 1.5vw, 24px);
   --fs-default: 1em;
+
+  --col-selected: rgb(173, 216, 230);
 }
 
 .App {
@@ -46,12 +48,42 @@ h4 {
   color: rgb(34, 34, 34);
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover,
+.selectable:hover {
+  color: var(--col-selected);
+}
+
+.selected {
+  color: var(--col-selected);
+}
+
 /*----------------Container inside the Card that holds all the content margin and orientation styling -------------------------------------- */
 
 .contentContainer {
   display: flex;
   flex-direction: column; /*Now whether in Landscape or Portrait mode the content will be in the correct orientation*/
   margin: 2em;
+}
+
+.contentContainer .imageContainer {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
+.contentContainer img {
+  display: block;
+  object-fit: contain;
+  width: clamp(1em, 80%, 20em);
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 0.5em;
 }
 
 /*------------------------------------------- SOLO Flippable Card Container Styling ---------------------------------------------------------- */
@@ -146,8 +178,8 @@ h4 {
     border-left: 1px solid darkgray;
   }
 
-  .contentContainer {
-    margin: 2em;
+  .backCard .imageContainer {
+    justify-content: flex-start;
   }
 
   .doubleLayout .backCard,
@@ -155,13 +187,27 @@ h4 {
     flex-direction: column;
   }
 
+  .doubleLayout .backCard .contentContainer {
+    margin: 0;
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+
+  .doubleLayout .backCard > div:nth-child(1) {
+    margin-top: 1em;
+  }
   .doubleLayout .backCard > div:nth-child(2) {
+    margin-bottom: 1.5em;
     padding-left: 0;
     border-left: 0;
   }
   .doubleLayout .backCard > div:nth-child(2) h4 {
     border-top: 1px solid darkgray;
-    padding-top: 1.5em;
+    padding-top: 1em;
+  }
+
+  .doubleLayout .imageContainer {
+    justify-content: center;
   }
 }
 
@@ -185,17 +231,20 @@ h4 {
     flex-direction: column;
   }
 
-  .doubleLayout .backCard,
-  .doubleLayout .frontCard {
-    flex-direction: row;
+  .contentContainer {
+    margin: 0;
+    margin-left: 2em;
+    margin-right: 2em;
   }
 
   .backCard > div:nth-child(1) {
     flex-basis: 60%;
+    margin-top: 1em;
   }
   .backCard > div:nth-child(2) {
     flex-basis: 40%;
     flex-direction: column-reverse;
+    margin-bottom: 1em;
   }
 
   .backCard > div:nth-child(2) h4 {
@@ -207,7 +256,26 @@ h4 {
     order: -1; /*So img on the back card will appear on the very top in portrait mode*/
   }
 
-  .contentContainer {
-    margin: 1em 2em 1em 2em;
+  .doubleLayout .backCard,
+  .doubleLayout .frontCard {
+    flex-direction: row;
+  }
+
+  .doubleLayout .backCard > div:nth-child(1),
+  .doubleLayout .backCard > div:nth-child(2),
+  .doubleLayout .frontCard .contentContainer {
+    margin: 2em 2em 2em 2em;
+  }
+
+  .doubleLayout .backCard .imageContainer {
+    justify-content: flex-start;
+  }
+  .doubleLayout .backCard > div:nth-child(2) h4 {
+    border-top: 0px;
+  }
+
+  .doubleLayout .backCard > div:nth-child(2).contentContainer {
+    border-left: 1px solid darkgray;
+    padding-left: 1em;
   }
 }

@@ -8,7 +8,7 @@ const FrontCard = ({children}) => {
         <div className='contentContainer' >
             <HeaderContainer subtitle={'Web Developer'} title={'Michelle Pak'}/>
             <div>
-                <p>linkedin.com/in/michellepak9</p>
+                <a href= {'https://www.linkedin.com/in/michellepak9'} target='blank'>www.linkedin.com/in/michellepak9</a>
                 <p>michellepak9@gmail.com</p>
             </div>
             <div>QR</div>
