@@ -4,7 +4,7 @@
   /*clamp: min limit, preferred, maximum limit */
   --fs-title: clamp(36px, 2vw, 64px);
   --fs-subtitle: clamp(20px, 1.5vw, 24px);
-  --fs-default: 1em;
+  --fs-default: clamp(0.75em, 1vw, 1em);
 
   --col-selected: rgb(173, 216, 230);
 }
@@ -60,6 +60,14 @@ a:hover,
 
 .selected {
   color: var(--col-selected);
+}
+
+p {
+  margin: 0.5em 0 0.5em 0;
+}
+
+.selectableSVG:hover {
+  fill: var(--col-selected);
 }
 
 /*----------------Container inside the Card that holds all the content margin and orientation styling -------------------------------------- */
@@ -124,13 +132,10 @@ a:hover,
   backface-visibility: hidden;
   display: flex;
   border-radius: 1em;
+  background-color: white;
 }
 
-.frontCard {
-  background-color: white;
-}
 .backCard {
-  background-color: white;
   transform: rotateY(180deg);
   /* so when the card is fliped 180 degrees in the y direction later it'll be right side up */
 }
@@ -139,6 +144,7 @@ a:hover,
 
 .frontCard > div {
   flex-basis: 50%;
+  flex-grow: 0;
 }
 
 /*---------------------------(PC & TABLET) DOUBLE LAYOUT STYLING --------------------------------------------------------------------- */
@@ -187,15 +193,18 @@ a:hover,
     flex-direction: column;
   }
 
+  .doubleLayout .frontCard .contentContainer,
   .doubleLayout .backCard .contentContainer {
     margin: 0;
     margin-left: 2em;
     margin-right: 2em;
   }
 
+  .doubleLayout .frontCard > div:nth-child(1),
   .doubleLayout .backCard > div:nth-child(1) {
     margin-top: 1em;
   }
+  .doubleLayout .frontCard > div:nth-child(2),
   .doubleLayout .backCard > div:nth-child(2) {
     margin-bottom: 1.5em;
     padding-left: 0;

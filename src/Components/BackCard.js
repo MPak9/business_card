@@ -9,8 +9,8 @@ const BackCard = ({children}) => {
   return (
     <div className='backCard'>
         <div className='contentContainer'>
-            <HeaderContainer projectName = {selected.title} />
-            <div >{selected.content}</div>
+            <HeaderContainer projectName = {selected.title} link={selected.link}/>
+            <p >{selected.content}</p>
             <div className='imageContainer'>
               <img src={selected.img}/>
             </div>

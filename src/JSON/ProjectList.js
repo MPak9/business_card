@@ -13,7 +13,7 @@ export const projects = [
         subtitle:'ReactJS Website',
         content:`Developed using React JS and CSS, Toasty is a fully responsive website showcasing a fictional brand's story & value proposition of providing healthy sandwiches for busy individuals`,
         img: ToastyPreview,
-        link:'',
+        link:'https://mpak9.github.io/toasty-sandwhich-website/',
     },
     {
         id:2,
