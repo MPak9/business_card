@@ -11,6 +11,11 @@ const BackCard = ({children}) => {
         <div className='contentContainer'>
             <HeaderContainer projectName = {selected.title} link={selected.link}/>
             <p >{selected.content}</p>
+            { selected.author != '' ?
+              <p>{selected.author}</p>
+              :''
+            }
+            
             <div className='imageContainer'>
               <img src={selected.img}/>
             </div>
