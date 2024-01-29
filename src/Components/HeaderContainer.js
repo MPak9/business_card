@@ -4,8 +4,9 @@ import newTab from '../Resources/icons8-new-tab-24.png'
 const HeaderContainer = ({subtitle, title, projectName, link}) => {
   return (
     <header>
-        <h1>{subtitle}</h1>
-        <h2>{title}</h2>
+        {/* The ternary operation is to prevent extra space from unnesccary h1 and h2 at top of the header */}
+        {subtitle != '' ? <h1>{subtitle}</h1> : ''}
+        {title != '' ? <h2>{title}</h2> : ''}
         {
           link != '' ? 
           <div style={{display:'flex', flexDirection:'row'}} >

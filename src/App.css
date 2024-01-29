@@ -40,7 +40,8 @@ h2 {
 h3 {
   font-size: var(--fs-subtitle);
   font-family: "Quattrocento", serif;
-  margin-top: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
 h4 {
@@ -54,9 +55,9 @@ a {
   text-decoration: none;
 }
 
-a:hover,
 .selectable:hover {
   color: var(--col-selected);
+  cursor: pointer;
 }
 
 .selected {
@@ -69,6 +70,7 @@ p {
 
 .selectableSVG:hover {
   fill: var(--col-selected);
+  cursor: pointer;
 }
 
 /*----------------Container inside the Card that holds all the content margin and orientation styling -------------------------------------- */
