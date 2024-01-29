@@ -71,6 +71,30 @@ p {
 .selectableSVG:hover {
   fill: var(--col-selected);
   cursor: pointer;
+  transform: scale(0.9);
+}
+
+.copySVG::after {
+  display: inline-block;
+  content: "Copied";
+  color: var(--col-selected);
+  animation: copyNotification 0.7s ease-in-out;
+}
+
+@keyframes copyNotification {
+  0% {
+    bottom: 0px;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }
 
 /*----------------Container inside the Card that holds all the content margin and orientation styling -------------------------------------- */
@@ -116,7 +140,6 @@ p {
   text-align: left;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-
   border-radius: 1em;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }

@@ -1,7 +1,18 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import HeaderContainer from './HeaderContainer'
 
 const FrontCard = ({children}) => {
+  const [copyActive, setCopyActive] = useState(false);
+
+  const clickCopy = (copied) => {
+    navigator.clipboard.writeText(copied);
+    setCopyActive(true);
+    setTimeout(()=> {
+      setCopyActive(false);
+    },700)  
+  }
+
   return (
     <div className='frontCard'>
         <div className='contentContainer'>
@@ -21,8 +32,8 @@ const FrontCard = ({children}) => {
                 </a>
                 <p>
                   michellepak9@gmail.com
-                  <span onClick={(e)=>{navigator.clipboard.writeText(e.currentTarget.textContent)}}>
-                    <svg className='selectableSVG material-symbols-outlined' xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style= {{marginLeft:'1rem'}}viewBox="0 -960 960 960"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+                  <span className={copyActive == true ? 'copySVG' : ''} onClick={() => clickCopy('michellepak9@gmail.com')}>
+                    <svg className='selectableSVG' xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style= {{marginLeft:'1rem'}}viewBox="0 -960 960 960"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
                     </svg>
                   </span>
                 </p>
