@@ -10,7 +10,7 @@ const BackCard = ({children}) => {
     <div className='backCard'>
         <div className='contentContainer'>
             <HeaderContainer projectName = {selected.title} link={selected.link}/>
-            <p >{selected.content}</p>
+            <p>{selected.content}</p>
             { selected.author != '' ?
               <p>{selected.author}</p>
               :''

@@ -10,14 +10,14 @@ const FrontCard = ({children}) => {
     setCopyActive(true);
     setTimeout(()=> {
       setCopyActive(false);
-    },700)  
+    },650)  
   }
 
   return (
     <div className='frontCard'>
         <div className='contentContainer'>
           <div className='imageContainer'style={{justifyContent:'center', objectFit:'contain'}}>
-            <img src='https://cdn.discordapp.com/attachments/1075543412582924378/1199057098810609836/BuisinessCardPortrait.png?ex=65c127f1&is=65aeb2f1&hm=c5370a912a27c163e94a07c77d054a9375c93a23515cb4c839abb5eb81b59e48&' style={{ objectFit:'contain', alignSelf:'center', maxHeight:'50vh'}} />
+            <img src='https://cdn.discordapp.com/attachments/1075543412582924378/1202413971026477056/BuisinessCardPortrait.png?ex=65cd5e46&is=65bae946&hm=9eca502e32d0819c0ba52b7e1c85c6694d907c32fa489d02b65ea45b20a71fec&' style={{ objectFit:'contain', alignSelf:'center', maxHeight:'50vh'}} />
           </div>
         </div>
         <div className='contentContainer' >

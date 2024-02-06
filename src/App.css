@@ -33,7 +33,7 @@ h1 {
 h2 {
   font-size: var(--fs-title);
   margin-top: 0.25em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
   font-family: "Quattrocento", serif;
 }
 
@@ -75,7 +75,7 @@ p {
 }
 
 .copySVG::after {
-  display: inline-block;
+  display: inline-block; /*Span inlines cannot be manipulated by transforms thus it needs to be an inline block */
   content: "Copied";
   color: var(--col-selected);
   animation: copyNotification 0.7s ease-in-out;
@@ -141,7 +141,7 @@ p {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   border-radius: 1em;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 3px 3px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Do an horizontal flip when you move the flip box container */

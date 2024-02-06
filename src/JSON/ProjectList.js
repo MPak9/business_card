@@ -20,10 +20,10 @@ export const projects = [
         id:2,
         title:'GUSDA Website',
         subtitle:'SquareSpace Website',
-        content:'"Testimony from Pastor David"',
-        author:'',
+        content:'"She brings a wealth of creativity to her work. Working with her is not just productive but also enjoyable."',
+        author:'- David Casas',
         img:GUSDA_Preview,
-        link:'',
+        link:'http://www.gusda.org',
     },
     {
         id:3,
@@ -34,6 +34,12 @@ export const projects = [
         img:Wrigley_Logo,
         link:'https://www.wrigleyconsultancy.com/',
     },
+
+
+
+]
+
+export const waitingList = [
     {
         id:4,
         title:'Christian Eclipse',
@@ -43,6 +49,4 @@ export const projects = [
         img: ChristianEclipse_logo,
         link:'',
     },
-
-
 ]
