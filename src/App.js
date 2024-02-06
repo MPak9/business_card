@@ -11,7 +11,7 @@ function App() {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div className='App'>
+    <div className='App' >
         { ((width >= 600) && (height >= 600)) 
       
       ? 

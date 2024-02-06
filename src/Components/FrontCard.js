@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import HeaderContainer from './HeaderContainer'
+import portrait from '../Resources/Portrait.png'
 
 const FrontCard = ({children}) => {
   const [copyActive, setCopyActive] = useState(false);
@@ -15,10 +16,8 @@ const FrontCard = ({children}) => {
 
   return (
     <div className='frontCard'>
-        <div className='contentContainer'>
-          <div className='imageContainer'style={{justifyContent:'center', objectFit:'contain'}}>
-            <img src='https://cdn.discordapp.com/attachments/1075543412582924378/1202413971026477056/BuisinessCardPortrait.png?ex=65cd5e46&is=65bae946&hm=9eca502e32d0819c0ba52b7e1c85c6694d907c32fa489d02b65ea45b20a71fec&' style={{ objectFit:'contain', alignSelf:'center', maxHeight:'50vh'}} />
-          </div>
+        <div className='imageContainer contentContainer'style={{justifyContent:'center', objectFit:'contain'}}>
+          <img className='dropshadow' src={portrait} style={{ objectFit:'contain', alignSelf:'center', maxHeight:'50vh'}} />
         </div>
         <div className='contentContainer' >
             <HeaderContainer subtitle={'Web Developer'} title={'Michelle Pak'}/>
