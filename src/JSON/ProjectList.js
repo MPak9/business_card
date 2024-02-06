@@ -34,19 +34,20 @@ export const projects = [
         img:Wrigley_Logo,
         link:'https://www.wrigleyconsultancy.com/',
     },
+    {
+        id:4,
+        title:'Christian Eclipse',
+        subtitle:'Wordpress Website',
+        content:'A Wordpess Website ... helped with creating foundation and page layouts and gave counseling and aid to the production of the website and its maintainance',
+        author:'',
+        img: ChristianEclipse_logo,
+        link:'https://christianeclipse.net/',
+    },
 
 
 
 ]
 
 export const waitingList = [
-    {
-        id:4,
-        title:'Christian Eclipse',
-        subtitle:'Wordpress Website',
-        content:'"Testiomony"',
-        author:'',
-        img: ChristianEclipse_logo,
-        link:'',
-    },
+
 ]
