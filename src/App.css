@@ -252,6 +252,10 @@ p {
   .doubleLayout .imageContainer {
     justify-content: center;
   }
+
+  .doubleLayout .frontCard .content-center {
+    align-items: center;
+  }
 }
 
 @media (orientation: landscape) and (min-width: 1100px) and (min-height: 500px) {
@@ -259,11 +263,18 @@ p {
     margin-left: 20em;
     margin-right: 20em;
   }
+  .doubleLayout .frontCard .content-center {
+    align-items: flex-start;
+  }
 }
 @media (orientation: landscape) and (min-width: 1100px) and (min-height: 700px) {
   .doubleLayout {
     margin-left: 10em;
     margin-right: 10em;
+  }
+
+  .doubleLayout .frontCard .content-center {
+    align-items: center;
   }
 }
 
@@ -273,11 +284,14 @@ p {
   .doubleLayout {
     flex-direction: column;
   }
-
   .contentContainer {
     margin: 0;
     margin-left: 2em;
     margin-right: 2em;
+  }
+
+  .frontCard .content-center {
+    align-items: center;
   }
 
   .backCard > div:nth-child(1) {

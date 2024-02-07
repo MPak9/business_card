@@ -19,7 +19,7 @@ const FrontCard = ({children}) => {
         <div className='imageContainer contentContainer'style={{justifyContent:'center', objectFit:'contain'}}>
           <img className='dropshadow' src={portrait} style={{ objectFit:'contain', alignSelf:'center', maxHeight:'50vh'}} />
         </div>
-        <div className='contentContainer' >
+        <div className='contentContainer content-center' >
             <HeaderContainer subtitle={'Web Developer'} title={'Michelle Pak'}/>
             <div>
                 <a href= {'https://www.linkedin.com/in/michellepak9'} target='blank'>
