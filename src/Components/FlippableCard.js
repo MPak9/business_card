@@ -3,8 +3,10 @@ import { useState } from 'react';
 import FrontCard from './FrontCard';
 import BackCard from './BackCard';
 
-const FlippableCard = () => {
-  const [isFlipped, setIsFlipped] = useState(false);
+const FlippableCard = ({children}) => {
+
+  const [isLeftFlipped, setIsLeftFlipped] = useState(false);
+  const [isRightFlipped, setIsRightFlipped] = useState(false);
 
   //https://stackoverflow.com/questions/70612769/how-do-i-recognize-swipe-events-in-react
   const [touchStartX, setTouchStartX] = useState(null)
@@ -30,10 +32,10 @@ const FlippableCard = () => {
 
   function onTouchEnd() {
       if (touchStartX && touchEndX) swipeHorizontal();
+      if (touchStartY && touchEndY) swipeVertical()
   }
 
   function swipeHorizontal() {
-
     const xDistance = touchStartX - touchEndX
     const yDistance = touchStartY - touchEndY
     if (Math.abs(yDistance) >= Math.abs(xDistance)) {
@@ -43,22 +45,54 @@ const FlippableCard = () => {
     const isLeftSwipe = xDistance > minSwipeDistance
     const isRightSwipe = xDistance < -minSwipeDistance
 
-    if (isLeftSwipe ) {
-      setIsFlipped(prev => !prev);
+    if (isLeftSwipe) {
+      
+      setIsRightFlipped(false);
+
+      if(!isLeftFlipped) {
+        setIsLeftFlipped(true);
+        return;
+      }
+
     }
 
-    if (isRightSwipe ) {
-      setIsFlipped(prev => !prev);
+    if (isRightSwipe) {
+
+      setIsLeftFlipped(false);
+
+      if(!isRightFlipped) {
+        setIsRightFlipped(true);
+        return;
+      }
+    }
+  }
+
+  function swipeVertical() {
+
+    const xDistance = touchStartX - touchEndX
+    const yDistance = touchStartY - touchEndY
+    if (Math.abs(xDistance) >= Math.abs(yDistance)) {
+        return;
+    }
+
+    const isUpSwipe = yDistance > minSwipeDistance
+    const isDownSipe = yDistance < -minSwipeDistance
+
+    if (isDownSipe) {
+        //onSwipeDown
+    }
+
+    if (isUpSwipe) {
+        //onSwipeUp
     }
 }
 
   return (
     <>
-      <div className={`flippableCardContainer ${isFlipped ? 'isFlipped' : ''}`} 
+      <div className={`flippableCardContainer ${isLeftFlipped ? 'flipNeg180': ''}`} 
       onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
         <div className='card'>
-          <FrontCard/>
-          <BackCard/>
+          {children}
         </div>
       </div>
       {/* <br/>

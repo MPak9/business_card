@@ -29,7 +29,10 @@ function App() {
         </div>
       :
 
-      <FlippableCard />
+      <FlippableCard >
+        <FrontCard />
+        <BackCard />
+      </FlippableCard>
 
       
       

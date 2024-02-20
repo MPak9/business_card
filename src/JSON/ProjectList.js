@@ -38,7 +38,7 @@ export const projects = [
         id:4,
         title:'Christian Eclipse',
         subtitle:'Wordpress Website',
-        content:'A Wordpess Website ... helped with creating foundation and page layouts and gave counseling and aid to the production of the website and its maintainance',
+        content:'Developed a WordPress website for an outreach ministry, implementing responsive design for optimal user experiences. Conducted research to integrate client requirements and enhance overall functionality.',
         author:'',
         img: ChristianEclipse_logo,
         link:'https://christianeclipse.net/',

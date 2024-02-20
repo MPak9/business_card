@@ -153,8 +153,12 @@ p {
 }
 
 /* Do an horizontal flip when you move the flip box container */
-.isFlipped .card {
+.flip180 .card {
   transform: rotateY(180deg);
+}
+
+.flipNeg180 .card {
+  transform: rotateY(-180deg);
 }
 
 .frontCard,
