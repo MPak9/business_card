@@ -4,7 +4,7 @@
   /*clamp: min limit, preferred, maximum limit */
   --fs-title: clamp(36px, 2vw, 64px);
   --fs-subtitle: clamp(20px, 1.5vw, 24px);
-  --fs-default: clamp(0.75em, 1vw, 1em);
+  --fs-default: clamp(12px, 1vw, 1em);
 
   --col-selected: rgb(173, 216, 230);
 }
