@@ -158,7 +158,8 @@ p {
 }
 
 .flipNeg180 .card {
-  transform: rotateY(-180deg);
+  transform: rotate3d(0, 1, 0, -180deg);
+  //transform: rotateY(-180deg);
 }
 
 .frontCard,

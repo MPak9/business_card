@@ -7,6 +7,7 @@ const FlippableCard = ({children}) => {
 
   const [isLeftFlipped, setIsLeftFlipped] = useState(false);
   const [isRightFlipped, setIsRightFlipped] = useState(false);
+  const [deg, setDeg] = useState(0);
 
   //https://stackoverflow.com/questions/70612769/how-do-i-recognize-swipe-events-in-react
   const [touchStartX, setTouchStartX] = useState(null)
@@ -46,6 +47,8 @@ const FlippableCard = ({children}) => {
     const isRightSwipe = xDistance < -minSwipeDistance
 
     if (isLeftSwipe) {
+
+      setDeg(prev => prev - 180);
       
       setIsRightFlipped(false);
 
@@ -57,6 +60,8 @@ const FlippableCard = ({children}) => {
     }
 
     if (isRightSwipe) {
+
+      setDeg(prev => prev + 180);
 
       setIsLeftFlipped(false);
 
@@ -89,7 +94,11 @@ const FlippableCard = ({children}) => {
 
   return (
     <>
-      <div className={`flippableCardContainer ${isLeftFlipped ? 'flipNeg180': ''}`} 
+      <div className={`flippableCardContainer ${isLeftFlipped ? 'flipNeg180' : ''}`} 
+
+      //style={{transform: `${isLeftFlipped ? 'rotateY(-180deg)' : ''}`}}
+      //style = {{ transformStyle:'preserve-3d', transform: `${isLeftFlipped ? `perspective(1000px) rotate3d(0, 1, 0, ${deg}deg)` : ''}`}}
+
       onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
         <div className='card'>
           {children}
