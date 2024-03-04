@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/business_card/static/css/main.bd1298b2.css",
-    "main.js": "/business_card/static/js/main.a7b1cde5.js",
+    "main.css": "/business_card/static/css/main.497e41a8.css",
+    "main.js": "/business_card/static/js/main.e7268aa4.js",
     "static/media/ToastyPreview.jpg": "/business_card/static/media/ToastyPreview.0d14df603c888edd8983.jpg",
     "static/media/ChristianEclipse_preview.jpg": "/business_card/static/media/ChristianEclipse_preview.19a845cebaf99b8699fb.jpg",
     "static/media/Portrait.png": "/business_card/static/media/Portrait.2886f4fa0b8dc91d6f68.png",
@@ -10,11 +10,11 @@
     "static/media/Wrigley_Logo.png": "/business_card/static/media/Wrigley_Logo.a425fd592e22b3546376.png",
     "static/media/ChristianEclipse_Logo.jpg": "/business_card/static/media/ChristianEclipse_Logo.fe46aedc2048a652eb18.jpg",
     "index.html": "/business_card/index.html",
-    "main.bd1298b2.css.map": "/business_card/static/css/main.bd1298b2.css.map",
-    "main.a7b1cde5.js.map": "/business_card/static/js/main.a7b1cde5.js.map"
+    "main.497e41a8.css.map": "/business_card/static/css/main.497e41a8.css.map",
+    "main.e7268aa4.js.map": "/business_card/static/js/main.e7268aa4.js.map"
   },
   "entrypoints": [
-    "static/css/main.bd1298b2.css",
-    "static/js/main.a7b1cde5.js"
+    "static/css/main.497e41a8.css",
+    "static/js/main.e7268aa4.js"
   ]
 }
