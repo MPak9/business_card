@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import HeaderContainer from './HeaderContainer'
 import portrait from '../Resources/Portrait.png'
+import qrCode from '../Resources/QR code link.png'
 
 const FrontCard = ({children}) => {
   const [copyActive, setCopyActive] = useState(false);
@@ -15,7 +16,8 @@ const FrontCard = ({children}) => {
   }
 
   return (
-    <div className='frontCard'>
+    <div className='frontCard card-grid-layout'>
+      <div className='flex-content-container'>
         <div className='imageContainer contentContainer'style={{justifyContent:'center', objectFit:'contain'}}>
           <img className='dropshadow' src={portrait} style={{ objectFit:'contain', alignSelf:'center', maxHeight:'50vh'}} />
         </div>
@@ -38,9 +40,11 @@ const FrontCard = ({children}) => {
                 </p>
             </div>
             <div style={{display:'flex', flexDirection:'row'}} >
-              <p>Click to copy QR Code link</p>
+            <img className='dropshadow' id='qrCode' src={qrCode} style={{ objectFit:'contain', alignSelf:'flex-start', maxHeight:'10vh'}} />
             </div>
         </div>
+      </div>
+        
 
     </div>
   )

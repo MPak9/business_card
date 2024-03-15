@@ -5,6 +5,9 @@ import BackCard from './BackCard';
 
 const FlippableCard = ({children}) => {
 
+  const [prev, setPrev] = useState(0);
+  const [current, setCurrent] = useState(0);
+
   const [isLeftFlipped, setIsLeftFlipped] = useState(false);
   const [isRightFlipped, setIsRightFlipped] = useState(false);
   const [deg, setDeg] = useState(0);
@@ -47,6 +50,7 @@ const FlippableCard = ({children}) => {
     const isRightSwipe = xDistance < -minSwipeDistance
 
     if (isLeftSwipe) {
+      
 
       setDeg(prev => prev - 180);
       
@@ -60,6 +64,7 @@ const FlippableCard = ({children}) => {
     }
 
     if (isRightSwipe) {
+        
 
       setDeg(prev => prev + 180);
 
@@ -96,7 +101,7 @@ const FlippableCard = ({children}) => {
     <>
       <div className={`flippableCardContainer ${isLeftFlipped ? 'flipNeg180' : ''}`} 
 
-      //style={{transform: `${isLeftFlipped ? 'rotateY(-180deg)' : ''}`}}
+      //style={{transform: `${isLeftFlipped ? `rotateY(${deg}deg)` : ''}`}}
       //style = {{ transformStyle:'preserve-3d', transform: `${isLeftFlipped ? `perspective(1000px) rotate3d(0, 1, 0, ${deg}deg)` : ''}`}}
 
       onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>

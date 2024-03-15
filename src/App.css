@@ -4,7 +4,8 @@
   /*clamp: min limit, preferred, maximum limit */
   --fs-title: clamp(36px, 2vw, 64px);
   --fs-subtitle: clamp(20px, 1.5vw, 24px);
-  --fs-default: clamp(12px, 1vw, 1em);
+  --fs-defaultVW: clamp(12px, 1vw, 1em);
+  --fs-defaultVH: clamp(14px, 1.8vh, 2em);
 
   --col-selected: rgb(173, 216, 230);
 }
@@ -15,7 +16,7 @@
   text-align: left;
   height: 100vh;
   justify-content: center;
-  font-size: var(--fs-default);
+  font-size: var(--fs-defaultVW);
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -49,7 +50,7 @@ h3 {
 }
 
 h4 {
-  font-size: var(--fs-default);
+  font-size: var(--fs-defaultVW);
   font-family: "Quattrocento Sans", sans-serif;
   color: rgb(34, 34, 34);
 }
@@ -110,7 +111,6 @@ p {
 .contentContainer {
   display: flex;
   flex-direction: column; /*Now whether in Landscape or Portrait mode the content will be in the correct orientation*/
-  margin: 2em;
 }
 
 .contentContainer .imageContainer {
@@ -152,6 +152,13 @@ p {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 3px 3px 4px rgba(0, 0, 0, 0.1);
 }
 
+.card-grid-layout {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 0.3fr repeat(4, 1fr) 0.3fr;
+  grid-template-rows: 0.3fr repeat(10, 1fr) 0.3fr;
+}
+
 /* Do an horizontal flip when you move the flip box container */
 .flip180 .card {
   transform: rotateY(180deg);
@@ -162,6 +169,10 @@ p {
   //transform: rotateY(-180deg);
 }
 
+.flipNeg360 .card {
+  transform: rotate3d(0, 1, 0, -360deg);
+}
+
 .frontCard,
 .backCard {
   position: absolute;
@@ -169,7 +180,7 @@ p {
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
-  display: flex;
+
   border-radius: 1em;
   background-color: white;
 }
@@ -179,9 +190,15 @@ p {
   /* so when the card is fliped 180 degrees in the y direction later it'll be right side up */
 }
 
+.flex-content-container {
+  display: flex;
+  grid-column: 2 / span 4;
+  grid-row: 2 / span 10;
+}
+
 /*--------------------------------------------------Different Layouts on Card Styling---------------------------------------------- */
 
-.frontCard > div {
+.frontCard .flex-content-container > div {
   flex-basis: 50%;
   flex-grow: 0;
 }
@@ -213,10 +230,14 @@ p {
 
 /*------------------------------------------------------Device Rotation & Orientation----------------------------------- */
 @media (orientation: landscape) {
-  .backCard > div:nth-child(1) {
-    flex-basis: 70%;
+  .App {
+    font-size: var(--fs-defaultVW);
   }
-  .backCard > div:nth-child(2) {
+  .backCard .flex-content-container > div:nth-child(1) {
+    flex-basis: 70%;
+    margin-right: 1em;
+  }
+  .backCard .flex-content-container > div:nth-child(2) {
     flex-basis: 30%;
     flex-direction: column-reverse;
     padding-left: 1em;
@@ -227,8 +248,8 @@ p {
     justify-content: flex-start;
   }
 
-  .doubleLayout .backCard,
-  .doubleLayout .frontCard {
+  .doubleLayout .backCard .flex-content-container,
+  .doubleLayout .frontCard .flex-content-container {
     flex-direction: column;
   }
 
@@ -239,17 +260,17 @@ p {
     margin-right: 2em;
   }
 
-  .doubleLayout .frontCard > div:nth-child(1),
-  .doubleLayout .backCard > div:nth-child(1) {
+  .doubleLayout .frontCard .flex-content-container > div:nth-child(1),
+  .doubleLayout .backCard .flex-content-container > div:nth-child(1) {
     margin-top: 1em;
   }
-  .doubleLayout .frontCard > div:nth-child(2),
-  .doubleLayout .backCard > div:nth-child(2) {
+  .doubleLayout .frontCard .flex-content-container > div:nth-child(2),
+  .doubleLayout .backCard .flex-content-container > div:nth-child(2) {
     margin-bottom: 1.5em;
     padding-left: 0;
     border-left: 0;
   }
-  .doubleLayout .backCard > div:nth-child(2) h4 {
+  .doubleLayout .backCard .flex-content-container > div:nth-child(2) h4 {
     border-top: 1px solid darkgray;
     padding-top: 1em;
   }
@@ -284,13 +305,16 @@ p {
 }
 
 @media (orientation: portrait) {
-  .frontCard,
-  .backCard,
-  .doubleLayout {
+  .App {
+    font-size: var(--fs-defaultVH);
+  }
+
+  .frontCard .flex-content-container,
+  .backCard .flex-content-container,
+  .doubleLayout .flex-content-container {
     flex-direction: column;
   }
   .contentContainer {
-    margin: 0;
     margin-left: 2em;
     margin-right: 2em;
   }
@@ -299,17 +323,17 @@ p {
     align-items: center;
   }
 
-  .backCard > div:nth-child(1) {
+  .backCard .flex-content-container > div:nth-child(1) {
     flex-basis: 60%;
     margin-top: 1em;
   }
-  .backCard > div:nth-child(2) {
+  .backCard .flex-content-container > div:nth-child(2) {
     flex-basis: 40%;
     flex-direction: column-reverse;
     margin-bottom: 1em;
   }
 
-  .backCard > div:nth-child(2) h4 {
+  .backCard .flex-content-container > div:nth-child(2) h4 {
     border-top: 1px solid darkgray;
     padding-top: 1.5em;
   }
@@ -318,13 +342,13 @@ p {
     order: -1; /*So img on the back card will appear on the very top in portrait mode*/
   }
 
-  .doubleLayout .backCard,
-  .doubleLayout .frontCard {
+  .doubleLayout .backCard .flex-content-container,
+  .doubleLayout .frontCard .flex-content-container {
     flex-direction: row;
   }
 
-  .doubleLayout .backCard > div:nth-child(1),
-  .doubleLayout .backCard > div:nth-child(2),
+  .doubleLayout .backCard .flex-content-container > div:nth-child(1),
+  .doubleLayout .backCard .flex-content-container > div:nth-child(2),
   .doubleLayout .frontCard .contentContainer {
     margin: 2em 2em 2em 2em;
   }
@@ -332,11 +356,14 @@ p {
   .doubleLayout .backCard .imageContainer {
     justify-content: flex-start;
   }
-  .doubleLayout .backCard > div:nth-child(2) h4 {
+  .doubleLayout .backCard .flex-content-container > div:nth-child(2) h4 {
     border-top: 0px;
   }
 
-  .doubleLayout .backCard > div:nth-child(2).contentContainer {
+  .doubleLayout
+    .backCard
+    .flex-content-container
+    > div:nth-child(2).contentContainer {
     border-left: 1px solid darkgray;
     padding-left: 1em;
   }
