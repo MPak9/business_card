@@ -129,6 +129,11 @@ p {
   border-radius: 0.5em;
 }
 
+.qrcode-container {
+  display: flex;
+  flex-direction: row;
+}
+
 /*------------------------------------------- SOLO Flippable Card Container Styling ---------------------------------------------------------- */
 
 /* The flip card container */
@@ -233,6 +238,11 @@ p {
   .App {
     font-size: var(--fs-defaultVW);
   }
+
+  .frontCard .flex-content-container > div:nth-child(2) {
+    margin: 2em;
+  }
+
   .backCard .flex-content-container > div:nth-child(1) {
     flex-basis: 70%;
     margin-right: 1em;
@@ -266,6 +276,7 @@ p {
   }
   .doubleLayout .frontCard .flex-content-container > div:nth-child(2),
   .doubleLayout .backCard .flex-content-container > div:nth-child(2) {
+    margin: 0;
     margin-bottom: 1.5em;
     padding-left: 0;
     border-left: 0;
@@ -340,6 +351,10 @@ p {
 
   .backCard > .contentContainer > #img {
     order: -1; /*So img on the back card will appear on the very top in portrait mode*/
+  }
+
+  .doubleLayout {
+    flex-direction: column;
   }
 
   .doubleLayout .backCard .flex-content-container,

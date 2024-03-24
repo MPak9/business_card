@@ -39,8 +39,8 @@ const FrontCard = ({children}) => {
                   </span>
                 </p>
             </div>
-            <div style={{display:'flex', flexDirection:'row'}} >
-            <img className='dropshadow' id='qrCode' src={qrCode} style={{ objectFit:'contain', alignSelf:'flex-start', maxHeight:'10vh'}} />
+            <div className ='qrcode-container'>
+              <img className='dropshadow' id='qrCode' src={qrCode} style={{ objectFit:'contain', alignSelf:'flex-start', width:'auto', maxHeight:'10vh'}} />
             </div>
         </div>
       </div>
